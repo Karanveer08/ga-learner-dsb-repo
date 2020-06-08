@@ -45,8 +45,17 @@ print(bayes)
 # --------------
 # code starts here
 df.purpose.value_counts(normalize=True).plot(kind='bar')
+plt.title("Probability Distribution of Purpose")
+plt.ylabel("Probability")
+plt.xlabel("Number of Purpose")
+plt.show()
+
 df1 = pd.DataFrame(df[df['paid.back.loan'] == 'No'])
 df1.purpose.value_counts(normalize=True).plot(kind='bar')
+plt.title("Probability Distribution of Purpose")
+plt.ylabel("Probability")
+plt.xlabel("Number of Purpose")
+plt.show()
 # code ends here
 
 
@@ -55,8 +64,12 @@ df1.purpose.value_counts(normalize=True).plot(kind='bar')
 inst_median = df['installment'].median()
 inst_mean = df['installment'].mean()
 
-plt.hist(df['installment'])
-plt.hist(df['log.annual.inc'])
+plt.hist(df['installment'],normed = True, bins=50)
+plt.axvline(x=inst_median,color='r')
+plt.axvline(x=inst_mean,color='g')
+plt.show()
+plt.hist(df['log.annual.inc'],normed = True, bins=50)
+plt.show()
 # code ends here
 
 
